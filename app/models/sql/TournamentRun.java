@@ -3,6 +3,7 @@ package models.sql;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -19,12 +20,12 @@ public class TournamentRun extends Model {
     @JoinColumn(name = "TournamentId")
     public Tournament tournament;
 
-    //Todo: handle different timezones
+    //Todo: handle different timezones - for now, let the frontend do this
     @Column(name = "StartTime", nullable = false)
-    public ZonedDateTime startTime;
+    public Timestamp startTime;
 
     @Column(name = "AccessCode", nullable = false)
-    public Integer accessCode;
+    public Long accessCode;
 
     @OneToMany(mappedBy = "tournamentRun")
     @OrderBy("roundOrderNumber")

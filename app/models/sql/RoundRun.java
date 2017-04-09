@@ -4,6 +4,7 @@ import com.avaje.ebean.Model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by brianzhao on 3/31/17.
@@ -20,6 +21,9 @@ public class RoundRun extends Model {
 
     @Column(name = "RoundOrderNumber", nullable = false)
     public Integer roundOrderNumber;
+
+    @OneToMany(mappedBy = "roundRun")
+    public Set<RoundRunGroups> groups;
 
 
 }

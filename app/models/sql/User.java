@@ -6,6 +6,7 @@ import com.avaje.ebean.annotation.Index;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 /**
  * Created by brianzhao on 3/21/17.
@@ -42,6 +43,9 @@ public class User extends Model{
     )
     public Collection<Tournament> tournaments;
 
+
+    @ManyToMany(mappedBy = "users")
+    public Set<RoundRunGroups> groups;
 
     public static Finder<Long, User> find = new Finder<Long, User>(User.class);
 
