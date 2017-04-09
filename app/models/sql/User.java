@@ -3,7 +3,6 @@ package models.sql;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.Set;
 
 /**
@@ -24,23 +23,19 @@ public class User extends Model {
     @Column(nullable = false, name = "Name")
     public String name;
 
-    @Column(nullable = false, name = "Email")
+    @Column(nullable = false, name = "Email", unique = true)
     public String email;
 
 
-    @ManyToMany
-    @JoinTable(
-            name = "UserTournamentTable",
-            joinColumns =
-            @JoinColumn(name = "UserId", referencedColumnName = "Id"),
-            inverseJoinColumns =
-            @JoinColumn(name = "TournamentId", referencedColumnName = "Id")
-    )
-    public Collection<Tournament> tournaments;
+    @OneToMany(mappedBy = "owner")
+    public Set<Tournament> tournaments;
 
 
     @ManyToMany(mappedBy = "users")
     public Set<RoundRunGroups> groups;
+
+    @OneToMany(mappedBy = "user")
+    public Set<RoundRunUserQuestionAnswer> answers;
 
     public static Finder<Long, User> find = new Finder<Long, User>(User.class);
 

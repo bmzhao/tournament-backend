@@ -1,10 +1,8 @@
 package models.sql;
 
-import com.avaje.ebean.Finder;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -12,13 +10,14 @@ import java.util.Set;
  * Created by brianzhao on 3/21/17.
  */
 @Entity
-public class Tournament extends Model{
+public class Tournament extends Model {
     @Id
     @Column(nullable = false, name = "Id")
     public Long id;
 
-    @ManyToMany(mappedBy = "tournaments")
-    public Collection<User> users;
+    @ManyToOne
+    @JoinColumn(name = "UserId")
+    public User owner;
 
     @Column(nullable = false, name = "WeightCorrect")
     public double weightCorrect;

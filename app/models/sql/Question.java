@@ -22,5 +22,8 @@ public class Question extends Model {
     @OrderBy("answerIndex ASC")
     public List<Answer> answers;
 
+    @OneToMany(mappedBy = "question")
+    public Set<RoundRunUserQuestionAnswer> studentAnswers;
+
     public static Finder<Long, Question> find = new Finder<Long, Question>(Question.class);
 }

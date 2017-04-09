@@ -25,5 +25,8 @@ public class RoundRun extends Model {
     @OneToMany(mappedBy = "roundRun")
     public Set<RoundRunGroups> groups;
 
+    @OneToMany(mappedBy = "roundRun")
+    public Set<RoundRunUserQuestionAnswer> studentAnswers;
+
     public static Finder<Long, RoundRun> find = new Finder<Long, RoundRun>(RoundRun.class);
 }

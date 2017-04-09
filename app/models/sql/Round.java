@@ -3,7 +3,6 @@ package models.sql;
 import com.avaje.ebean.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.List;
 
 /**

@@ -8,6 +8,7 @@ import java.util.Set;
 /**
  * Created by brianzhao on 4/8/17.
  */
+@Entity
 public class RoundRunGroups extends Model {
     @Id
     @Column(nullable = false, name = "Id")
