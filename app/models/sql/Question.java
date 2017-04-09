@@ -12,10 +12,10 @@ import java.util.Set;
 @Entity
 public class Question extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
-    @Column(nullable = false, name = "QuestionText", columnDefinition = "text")
+    @Column(nullable = false, name = "question_text", columnDefinition = "text")
     public String questionText;
 
     @OneToMany(mappedBy = "question")

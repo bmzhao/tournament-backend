@@ -9,21 +9,21 @@ import java.util.Set;
  * Created by brianzhao on 3/21/17.
  */
 @Entity
-public class User extends Model {
+public class AppUser extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
-    @Column(nullable = false, name = "PasswordHash")
+    @Column(nullable = false, name = "password_hash")
     public String passwordHash;
 
-    @Column(nullable = false, name = "Admin")
+    @Column(nullable = false, name = "admin")
     public Boolean admin;
 
-    @Column(nullable = false, name = "Name")
+    @Column(nullable = false, name = "name")
     public String name;
 
-    @Column(nullable = false, name = "Email", unique = true)
+    @Column(nullable = false, name = "email", unique = true)
     public String email;
 
 
@@ -31,13 +31,13 @@ public class User extends Model {
     public Set<Tournament> tournaments;
 
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(mappedBy = "appUsers")
     public Set<RoundRunGroups> groups;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "appUser")
     public Set<RoundRunUserQuestionAnswer> answers;
 
-    public static Finder<Long, User> find = new Finder<Long, User>(User.class);
+    public static Finder<Long, AppUser> find = new Finder<Long, AppUser>(AppUser.class);
 
 
 }

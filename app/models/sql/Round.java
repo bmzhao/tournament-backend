@@ -11,14 +11,14 @@ import java.util.List;
 @Entity
 public class Round extends Model{
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
-    @Column(nullable = false, name = "RoundOrderNumber")
+    @Column(nullable = false, name = "round_order_number")
     public Integer roundOrderNumber;
 
     @ManyToOne
-    @JoinColumn(name = "TournamentId")
+    @JoinColumn(name = "tournament_id")
     public Tournament tournament;
 
     @OneToMany(mappedBy = "round")

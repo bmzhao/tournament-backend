@@ -11,22 +11,22 @@ import java.util.Set;
 @Entity
 public class RoundRunGroups extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "RoundRunId")
+    @JoinColumn(name = "round_run_id")
     public RoundRun roundRun;
 
     @ManyToMany
     @JoinTable(
-            name = "UserGroupsRoundsTable",
+            name = "user_groups_rounds_table",
             joinColumns =
-            @JoinColumn(name = "UserId", referencedColumnName = "Id"),
+            @JoinColumn(name = "user_id", referencedColumnName = "Id"),
             inverseJoinColumns =
-            @JoinColumn(name = "RoundRunGroupId", referencedColumnName = "Id")
+            @JoinColumn(name = "round_run_group_id", referencedColumnName = "Id")
     )
-    public Set<User> users;
+    public Set<AppUser> appUsers;
 
     public static Finder<Long, RoundRunGroups> find = new Finder<Long, RoundRunGroups>(RoundRunGroups.class);
 }
