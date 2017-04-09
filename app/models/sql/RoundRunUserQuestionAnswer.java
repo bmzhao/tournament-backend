@@ -10,23 +10,23 @@ import javax.persistence.*;
 @Entity
 public class RoundRunUserQuestionAnswer extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
-    public User user;
+    @JoinColumn(name = "user_id")
+    public AppUser appUser;
 
     @ManyToOne
-    @JoinColumn(name = "RoundRunId")
+    @JoinColumn(name = "round_run_id")
     public RoundRun roundRun;
 
     @ManyToOne
-    @JoinColumn(name = "QuestionId")
+    @JoinColumn(name = "question_id")
     public Question question;
 
     @ManyToOne
-    @JoinColumn(name = "AnswerId")
+    @JoinColumn(name = "answer_id")
     public Answer answer;
 
     public static Finder<Long, RoundRunUserQuestionAnswer> find = new Finder<Long, RoundRunUserQuestionAnswer>(RoundRunUserQuestionAnswer.class);

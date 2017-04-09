@@ -12,20 +12,20 @@ import java.util.Set;
 @Entity
 public class Tournament extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "UserId")
-    public User owner;
+    @JoinColumn(name = "user_id")
+    public AppUser owner;
 
-    @Column(nullable = false, name = "WeightCorrect")
+    @Column(nullable = false, name = "weight_correct")
     public double weightCorrect;
 
-    @Column(nullable = false, name = "WeightIncorrect")
+    @Column(nullable = false, name = "weight_incorrect")
     public double weightIncorrect;
 
-    @Column(nullable = false, name = "WeightFirst")
+    @Column(nullable = false, name = "weight_first")
     public double weightFirst;
 
     @OneToMany(mappedBy = "tournament")

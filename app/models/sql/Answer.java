@@ -11,20 +11,20 @@ import java.util.Set;
 @Entity
 public class Answer extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "QuestionId")
+    @JoinColumn(name = "question_id")
     public Question question;
 
-    @Column(nullable = false, name = "AnswerIndex")
+    @Column(nullable = false, name = "answer_index")
     public Integer answerIndex;
 
-    @Column(nullable = false, name = "Correct")
+    @Column(nullable = false, name = "correct")
     public boolean correct;
 
-    @Column(nullable = false, name = "AnswerText", columnDefinition = "text")
+    @Column(nullable = false, name = "answer_text", columnDefinition = "text")
     public boolean answerText;
 
     @OneToMany(mappedBy = "answer")

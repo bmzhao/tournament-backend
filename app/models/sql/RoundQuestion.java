@@ -10,18 +10,18 @@ import javax.persistence.*;
 @Entity
 public class RoundQuestion extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "QuestionId")
+    @JoinColumn(name = "question_id")
     public Question question;
 
     @ManyToOne
-    @JoinColumn(name = "RoundId")
+    @JoinColumn(name = "round_id")
     public Round round;
 
-    @Column(nullable = false, name = "QuestionIndex")
+    @Column(nullable = false, name = "question_index")
     public Integer questionIndex;
 
     public static Finder<Long, RoundQuestion> find = new Finder<Long, RoundQuestion>(RoundQuestion.class);

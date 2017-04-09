@@ -13,18 +13,18 @@ import java.util.List;
 @Entity
 public class TournamentRun extends Model {
     @Id
-    @Column(nullable = false, name = "Id")
+    @Column(nullable = false, name = "id")
     public Long id;
 
     @ManyToOne
-    @JoinColumn(name = "TournamentId")
+    @JoinColumn(name = "tournament_id")
     public Tournament tournament;
 
     //Todo: handle different timezones - for now, let the frontend do this
-    @Column(name = "StartTime", nullable = false)
+    @Column(name = "start_time", nullable = false)
     public Timestamp startTime;
 
-    @Column(name = "AccessCode", nullable = true)
+    @Column(name = "access_code", nullable = true)
     public Long accessCode;
 
     @OneToMany(mappedBy = "tournamentRun")
