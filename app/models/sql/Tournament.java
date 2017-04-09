@@ -6,6 +6,7 @@ import com.avaje.ebean.Model;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by brianzhao on 3/21/17.
@@ -31,6 +32,9 @@ public class Tournament extends Model{
     @OneToMany(mappedBy = "tournament")
     @OrderBy("roundOrderNumber")
     public List<Round> rounds;
+
+    @OneToMany(mappedBy = "tournament")
+    public Set<TournamentRun> tournamentRuns;
 
     public static Finder<Long, Tournament> find = new Finder<Long, Tournament>(Tournament.class);
 

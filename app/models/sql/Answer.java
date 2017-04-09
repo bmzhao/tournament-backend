@@ -25,4 +25,6 @@ public class Answer extends Model {
 
     @Column(nullable = false, name = "AnswerText", columnDefinition = "text")
     public boolean answerText;
+
+    public static Finder<Long, Answer> find = new Finder<Long, Answer>(Answer.class);
 }

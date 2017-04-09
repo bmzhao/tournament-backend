@@ -24,10 +24,12 @@ public class TournamentRun extends Model {
     @Column(name = "StartTime", nullable = false)
     public Timestamp startTime;
 
-    @Column(name = "AccessCode", nullable = false)
+    @Column(name = "AccessCode", nullable = true)
     public Long accessCode;
 
     @OneToMany(mappedBy = "tournamentRun")
     @OrderBy("roundOrderNumber")
     public List<RoundRun> rounds;
+
+    public static Finder<Long, TournamentRun> find = new Finder<Long, TournamentRun>(TournamentRun.class);
 }

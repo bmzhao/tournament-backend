@@ -1,8 +1,6 @@
 package models.sql;
 
-import com.avaje.ebean.Finder;
 import com.avaje.ebean.Model;
-import com.avaje.ebean.annotation.Index;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -12,13 +10,10 @@ import java.util.Set;
  * Created by brianzhao on 3/21/17.
  */
 @Entity
-public class User extends Model{
+public class User extends Model {
     @Id
     @Column(nullable = false, name = "Id")
     public Long id;
-
-    @Column(nullable = false, name = "Username")
-    public String username;
 
     @Column(nullable = false, name = "PasswordHash")
     public String passwordHash;
@@ -29,7 +24,7 @@ public class User extends Model{
     @Column(nullable = false, name = "Name")
     public String name;
 
-    @Column(nullable = false, name="Email")
+    @Column(nullable = false, name = "Email")
     public String email;
 
 

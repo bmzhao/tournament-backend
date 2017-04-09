@@ -26,4 +26,6 @@ public class RoundRunGroups extends Model {
             @JoinColumn(name = "RoundRunGroupId", referencedColumnName = "Id")
     )
     public Set<User> users;
+
+    public static Finder<Long, RoundRunGroups> find = new Finder<Long, RoundRunGroups>(RoundRunGroups.class);
 }

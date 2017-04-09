@@ -22,4 +22,5 @@ public class Question extends Model {
     @OrderBy("answerIndex ASC")
     public List<Answer> answers;
 
+    public static Finder<Long, Question> find = new Finder<Long, Question>(Question.class);
 }

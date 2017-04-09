@@ -24,6 +24,6 @@ public class RoundQuestion extends Model {
     @Column(nullable = false, name = "QuestionIndex")
     public Integer questionIndex;
 
-
+    public static Finder<Long, RoundQuestion> find = new Finder<Long, RoundQuestion>(RoundQuestion.class);
 
 }

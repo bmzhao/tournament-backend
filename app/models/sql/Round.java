@@ -26,5 +26,6 @@ public class Round extends Model{
     @OrderBy("questionIndex ASC")
     public List<RoundQuestion> questions;
 
+    public static Finder<Long, Round> find = new Finder<Long, Round>(Round.class);
 }
 
